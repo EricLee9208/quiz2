@@ -1,0 +1,20 @@
+<div style="margin-top: 1vh">
+  <%@ideas.each do |idea|%>
+    <div class="card m-2">
+      <div class="card-body">
+        <h3 class="card-title"><%=link_to idea.title, idea, style:"text-decoration: none; color:#31817e"%></h3>
+        <p class="card-text"><%=idea.description%></p>
+        <div class="d-flex flex-row justify-content-end">
+          <p style="flex:1"><small>By <%=idea.user.full_name%></small></p>
+          <%like = idea.likes.find_by(user: current_user)%>
+          <%if like.present?%>
+            <%= button_to "Liked", like_path(like.id), method: :delete, class:"btn btn-success mx-3" %>
+          <%else%>
+            <%= button_to "Like", idea_likes_path(idea), method: :post, class:"btn btn-outline-success mx-3", style:"float:left;" %>
+          <% end %>
+          <p> Likes: <%=idea.likes.count%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

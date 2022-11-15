@@ -1,0 +1,26 @@
+<div style="margin-top: 10vh">
+  <% if @idea.errors.any? %>
+    <ul style="list-style-type: none;">
+      <b>*Error: Please see below for more info* </b>
+      <% @idea.errors.full_messages.each do |msg| %>
+        <li style="color:red"> <%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with(model: @idea) do |form| %>
+    <div class="p-3">
+      <span style="font-size: 20px;"> <%= form.label :title%></span>
+      <br>
+      <%= form.text_field :title, style:"width:100%; margin-top:10px;" %>
+    </div>
+    <div class="p-3">
+      <span style="font-size: 20px"><%= form.label :description %> </span>
+      <br>
+      <%= form.text_area :description, cols:50, rows: 5, style:"width:100%; margin-top:10px;" %>
+    </div>
+    <div class="p-3">
+      <%= form.submit class: "btn btn-outline-success" %>
+      <%=link_to "Cancel", idea_path(@idea), class:"btn btn-outline-success"%>
+    </div>
+  <% end %>
+</div>

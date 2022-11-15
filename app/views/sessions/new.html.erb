@@ -1,0 +1,27 @@
+<div style="width:30vw;  text-align: center;   margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);" >
+  <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="/session/new" role="tab"
+      aria-controls="pills-login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="/users/new" role="tab"
+      aria-controls="pills-register" aria-selected="false" style="color:#31817e">Sign Up</a>
+    </li>
+  </ul>
+  <%= form_with url: session_path do |f|%>
+    <div class="form-outline mb-4">
+      <%= f.label :email, class: "form-label"%>
+      <%= f.text_field :email, placeholder: "email@example.ca", class: "form-control", style: "text-align: center;"%>
+    </div>
+    <div class="form-outline mb-4">
+      <%= f.label :password, class: "form-label", id: "form2Example1"%>
+      <%= f.password_field :password, placeholder: "Enter your password", class:"form-control", style: "text-align: center;"%>
+    </div>
+    <%= f.submit "Sign In", class: "btn btn-success btn-block mb-3", style: "width: 20%" %>
+  <%end%>
+</div>
