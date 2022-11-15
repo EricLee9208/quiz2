@@ -1,0 +1,11 @@
+<div style="margin-top: 10vh">
+  <% if @idea.errors.any? %>
+    <ul style="list-style-type: none;">
+      <b>*Error: Please see below for more info* </b>
+      <% @idea.errors.full_messages.each do |msg| %>
+        <li style="color:red"> <%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= render "form" %>
+</div>

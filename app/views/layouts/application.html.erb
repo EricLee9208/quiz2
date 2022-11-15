@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quiz2</title>
+    <title>Quiz 2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+    <div style="margin-bottom:12vh">
+      <nav class="navbar fixed-top navbar-dark" style="background-color:#266461; box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 25%), inset 0 -1px 0 rgb(0 0 0 / 15%);">
+        <a class="navbar-brand" href="<%=root_path%>">
+          <%= image_tag ("logo3.png"), style: "width:15%; height: 100%; margin-left:3%; margin-right:2%"%>
+          Idea Factory
+        </a>
+        <ul class="nav justify-content-end" style="margin-right:1vw;">
+          <li class="nav-item">
+            <a style="font-size:20px; color:white" class="nav-link" href="<%=ideas_path%>">Home</a>
+          </li>
+          <li class="nav-item">
+            <a style="font-size:20px; color:white" class="nav-link" href="<%=new_idea_path%>">New Idea</a>
+          </li>
+          <%if user_signed_in?%>
+            <li class="nav-item">
+              <p class= "nav-link", style= "margin-right:1vw; font-size:20px; color:bisque"><%=current_user.full_name %></p>
+            </li>
+            <li class="nav-item">
+              <%= button_to "Sign Out", session_path, method: :delete, class: "btn btn-secondary", style: "font-size:20px; color:white"%>
+            </li>
+          <%else%>
+            <li class="nav-item">
+              <a style="font-size:20px; color:white" class="nav-link" href="<%=new_session_path%>">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a style="font-size:20px; color:white" class="nav-link" href="<%=new_user_path%>">Sign Up</a>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+    <% flash.each do |type, message| %>
+      <div class="alert alert-info" role=alert >
+        <%= type + "-------" + message %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<%= form_with(model: @idea) do |form| %>
+  <div class="p-3">
+    <span style="font-size: 20px;"> <%= form.label :title%></span>
+    <br>
+    <%= form.text_field :title, style:"width:100%; margin-top:10px;" %>
+  </div>
+  <div class="p-3">
+    <span style="font-size: 20px"><%= form.label :description %> </span>
+    <br>
+    <%= form.text_area :description, cols:50, rows: 5, style:"width:100%; margin-top:10px;" %>
+  </div>
+  <div class="p-3">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
