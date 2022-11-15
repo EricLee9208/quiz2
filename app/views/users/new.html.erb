@@ -6,7 +6,7 @@
   <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="tab-login" data-mdb-toggle="pill" href="/session/new" role="tab"
-      aria-controls="pills-login" aria-selected="true">Login</a>
+      aria-controls="pills-login" aria-selected="true" style="color:#31817e">Login</a>
     </li>
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="tab-register" data-mdb-toggle="pill" href="/users/new" role="tab"
@@ -37,6 +37,6 @@
       <%= f.label :password_confirmation, class: "form-label"%>
       <%= f.password_field :password_confirmation, placeholder: "Re-Enter password", class: "form-control", style: "text-align: center;"%>
     </div>
-    <%= f.submit "Sign Up",  class: "btn btn-primary btn-block mb-3", style: "width: 20%" %>
+    <%= f.submit "Sign Up",  class: "btn btn-success btn-block mb-3", style: "width: 20%" %>
   <%end%>
 </div>
